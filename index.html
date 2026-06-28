@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Harshit Kumar – Full-Stack Developer & Computer Science Student. Building responsive web applications with modern technologies." />
+  <meta name="keywords" content="Harshit Kumar, Full-Stack Developer, Computer Science, Web Development, Portfolio" />
+  <meta name="author" content="Harshit Kumar" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Harshit Kumar | Full-Stack Developer" />
+  <meta property="og:description" content="Passionate CS student building scalable, user-friendly web applications." />
+  <meta property="og:type" content="website" />
+
+  <title>Harshit Kumar | Full-Stack Developer</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet" />
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+
+  <!-- ============================================================
+       LOADING SCREEN
+  ============================================================ -->
+  <div id="loader" class="loader" aria-hidden="true">
+    <div class="loader__inner">
+      <div class="loader__ring"></div>
+      <span class="loader__text">HK</span>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       PARTICLE CANVAS (background)
+  ============================================================ -->
+  <canvas id="particles" aria-hidden="true"></canvas>
+
+  <!-- ============================================================
+       NAVIGATION
+  ============================================================ -->
+  <header class="nav" role="banner">
+    <nav class="nav__inner container" aria-label="Primary navigation">
+      <a href="#hero" class="nav__logo" aria-label="Harshit Kumar home">
+        <span class="nav__logo-bracket">&lt;</span>HK<span class="nav__logo-bracket">/&gt;</span>
+      </a>
+
+      <ul class="nav__links" role="list">
+        <li><a href="#about"   class="nav__link">About</a></li>
+        <li><a href="#skills"  class="nav__link">Skills</a></li>
+        <li><a href="#projects" class="nav__link">Projects</a></li>
+        <li><a href="#resume"  class="nav__link">Resume</a></li>
+        <li><a href="#contact" class="nav__link">Contact</a></li>
+      </ul>
+
+      <div class="nav__actions">
+        <!-- Dark / Light toggle -->
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle color theme" title="Toggle theme">
+          <i class="fa-solid fa-sun"  id="iconSun"  aria-hidden="true"></i>
+          <i class="fa-solid fa-moon" id="iconMoon" aria-hidden="true"></i>
+        </button>
+
+        <!-- Hamburger -->
+        <button class="nav__burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Mobile drawer -->
+    <div class="nav__mobile" id="mobileMenu" aria-hidden="true">
+      <ul role="list">
+        <li><a href="#about"    class="nav__link" data-close>About</a></li>
+        <li><a href="#skills"   class="nav__link" data-close>Skills</a></li>
+        <li><a href="#projects" class="nav__link" data-close>Projects</a></li>
+        <li><a href="#resume"   class="nav__link" data-close>Resume</a></li>
+        <li><a href="#contact"  class="nav__link" data-close>Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ============================================================
+         HERO SECTION
+    ============================================================ -->
+    <section id="hero" class="hero section" aria-label="Introduction">
+      <div class="hero__content container">
+        <div class="hero__text reveal">
+          <p class="hero__greeting">Hello, World! 👋</p>
+          <h1 class="hero__name">I'm <span class="gradient-text">Harshit Kumar</span></h1>
+          <h2 class="hero__role">
+            <span class="hero__static">A&nbsp;</span>
+            <span class="hero__typed" id="typedText" aria-live="polite"></span>
+            <span class="hero__cursor" aria-hidden="true">|</span>
+          </h2>
+          <p class="hero__desc">
+            Passionate CS student crafting responsive web applications — from pixel-perfect interfaces
+            to robust backend services. I turn ideas into scalable digital experiences.
+          </p>
+          <div class="hero__actions">
+            <a href="#projects" class="btn btn--primary">View My Work <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+            <a href="#contact"  class="btn btn--outline">Let's Talk</a>
+          </div>
+
+          <!-- Animated counters -->
+          <div class="hero__stats" role="list">
+            <div class="stat" role="listitem">
+              <span class="stat__num" data-target="3">0</span><span class="stat__plus">+</span>
+              <span class="stat__label">Projects</span>
+            </div>
+            <div class="stat" role="listitem">
+              <span class="stat__num" data-target="7">0</span><span class="stat__plus">+</span>
+              <span class="stat__label">Technologies</span>
+            </div>
+            <div class="stat" role="listitem">
+              <span class="stat__num" data-target="1">0</span><span class="stat__plus">+</span>
+              <span class="stat__label">Years Learning</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Profile image placeholder -->
+        <div class="hero__avatar reveal reveal--right" aria-hidden="true">
+          <div class="hero__avatar-ring">
+            <div class="hero__avatar-img">
+              <img src="assets/images/myPhoto.jpg" alt="Harshit Kumar" />
+            </div>
+          </div>
+          <div class="hero__avatar-badge">Full-Stack Dev</div>
+        </div>
+      </div>
+
+      <!-- Scroll indicator -->
+      <a href="#about" class="hero__scroll" aria-label="Scroll to about section">
+        <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+      </a>
+    </section>
+
+    <!-- ============================================================
+         ABOUT SECTION
+    ============================================================ -->
+    <section id="about" class="about section" aria-labelledby="about-title">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">Get to know me</span>
+          <h2 id="about-title" class="section-title">About <span class="gradient-text">Me</span></h2>
+        </div>
+
+        <div class="about__grid">
+          <!-- Card: Who am I -->
+          <div class="glass-card reveal">
+            <div class="about__icon"><i class="fa-solid fa-code" aria-hidden="true"></i></div>
+            <h3>Who I Am</h3>
+            <p>
+              I'm Harshit Kumar, a passionate Computer Science student and aspiring Full-Stack Developer.
+              I love building responsive, user-friendly applications that solve real-world problems.
+            </p>
+          </div>
+
+          <!-- Card: What I do -->
+          <div class="glass-card reveal reveal--delay-1">
+            <div class="about__icon"><i class="fa-solid fa-laptop-code" aria-hidden="true"></i></div>
+            <h3>What I Do</h3>
+            <p>
+              I design and develop web applications — from crafting clean, accessible frontends
+              to building reliable APIs and integrating databases.
+            </p>
+          </div>
+
+          <!-- Card: Career objective -->
+          <div class="glass-card reveal reveal--delay-2">
+            <div class="about__icon"><i class="fa-solid fa-rocket" aria-hidden="true"></i></div>
+            <h3>My Goal</h3>
+            <p>
+              To grow into a skilled full-stack engineer who ships scalable products, contributes
+              to open source, and continuously learns new technologies.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SKILLS SECTION
+    ============================================================ -->
+    <section id="skills" class="skills section" aria-labelledby="skills-title">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">What I know</span>
+          <h2 id="skills-title" class="section-title">My <span class="gradient-text">Skills</span></h2>
+        </div>
+
+        <div class="skills__grid">
+
+          <!-- Skill card -->
+          <div class="skill-card glass-card reveal" data-skill="90">
+            <div class="skill-card__icon"><i class="fa-brands fa-html5" aria-hidden="true"></i></div>
+            <h3 class="skill-card__name">HTML5</h3>
+            <div class="skill-card__bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" aria-label="HTML5 proficiency 90%">
+              <div class="skill-card__fill" data-width="90"></div>
+            </div>
+            <span class="skill-card__pct">90%</span>
+          </div>
+
+          <div class="skill-card glass-card reveal reveal--delay-1" data-skill="85">
+            <div class="skill-card__icon"><i class="fa-brands fa-css3-alt" aria-hidden="true"></i></div>
+            <h3 class="skill-card__name">CSS3</h3>
+            <div class="skill-card__bar" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" aria-label="CSS3 proficiency 85%">
+              <div class="skill-card__fill" data-width="85"></div>
+            </div>
+            <span class="skill-card__pct">85%</span>
+          </div>
+
+          <div class="skill-card glass-card reveal reveal--delay-2" data-skill="80">
+            <div class="skill-card__icon"><i class="fa-brands fa-js" aria-hidden="true"></i></div>
+            <h3 class="skill-card__name">JavaScript</h3>
+            <div class="skill-card__bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" aria-label="JavaScript proficiency 80%">
+              <div class="skill-card__fill" data-width="80"></div>
+            </div>
+            <span class="skill-card__pct">80%</span>
+          </div>
+
+          <div class="skill-card glass-card reveal" data-skill="75">
+            <div class="skill-card__icon"><i class="fa-solid fa-mobile-screen" aria-hidden="true"></i></div>
+            <h3 class="skill-card__name">Responsive Design</h3>
+            <div class="skill-card__bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" aria-label="Responsive Design proficiency 75%">
+              <div class="skill-card__fill" data-width="75"></div>
+            </div>
+            <span class="skill-card__pct">75%</span>
+          </div>
+
+          <div class="skill-card glass-card reveal reveal--delay-1" data-skill="80">
+            <div class="skill-card__icon"><i class="fa-brands fa-git-alt" aria-hidden="true"></i></div>
+            <h3 class="skill-card__name">Git</h3>
+            <div class="skill-card__bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" aria-label="Git proficiency 80%">
+              <div class="skill-card__fill" data-width="80"></div>
+            </div>
+            <span class="skill-card__pct">80%</span>
+          </div>
+
+          <div class="skill-card glass-card reveal reveal--delay-2" data-skill="78">
+            <div class="skill-card__icon"><i class="fa-brands fa-github" aria-hidden="true"></i></div>
+            <h3 class="skill-card__name">GitHub</h3>
+            <div class="skill-card__bar" role="progressbar" aria-valuenow="78" aria-valuemin="0" aria-valuemax="100" aria-label="GitHub proficiency 78%">
+              <div class="skill-card__fill" data-width="78"></div>
+            </div>
+            <span class="skill-card__pct">78%</span>
+          </div>
+
+          <div class="skill-card glass-card reveal" data-skill="70">
+            <div class="skill-card__icon"><i class="fa-solid fa-pen-ruler" aria-hidden="true"></i></div>
+            <h3 class="skill-card__name">UI/UX Design</h3>
+            <div class="skill-card__bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" aria-label="UI/UX proficiency 70%">
+              <div class="skill-card__fill" data-width="70"></div>
+            </div>
+            <span class="skill-card__pct">70%</span>
+          </div>
+
+          <div class="skill-card glass-card reveal reveal--delay-1" data-skill="85">
+            <div class="skill-card__icon"><i class="fa-solid fa-puzzle-piece" aria-hidden="true"></i></div>
+            <h3 class="skill-card__name">Problem Solving</h3>
+            <div class="skill-card__bar" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" aria-label="Problem Solving proficiency 85%">
+              <div class="skill-card__fill" data-width="85"></div>
+            </div>
+            <span class="skill-card__pct">85%</span>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         PROJECTS SECTION
+    ============================================================ -->
+    <section id="projects" class="projects section" aria-labelledby="projects-title">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">What I've built</span>
+          <h2 id="projects-title" class="section-title">My <span class="gradient-text">Projects</span></h2>
+        </div>
+
+        <!-- Filter buttons -->
+        <div class="projects__filter reveal" role="group" aria-label="Filter projects">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="html">HTML/CSS</button>
+          <button class="filter-btn" data-filter="js">JavaScript</button>
+        </div>
+
+        <div class="projects__grid" id="projectsGrid">
+
+          <!-- Project 1 -->
+          <article class="project-card glass-card reveal" data-category="html js">
+            <div class="project-card__header">
+              <div class="project-card__icon"><i class="fa-solid fa-briefcase" aria-hidden="true"></i></div>
+              <div class="project-card__links">
+                <a href="#" class="project-card__link" aria-label="View Portfolio source on GitHub">
+                  <i class="fa-brands fa-github" aria-hidden="true"></i>
+                </a>
+                <a href="#" class="project-card__link" aria-label="View Portfolio live demo">
+                  <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+                </a>
+              </div>
+            </div>
+            <h3 class="project-card__title">Portfolio Website</h3>
+            <p class="project-card__desc">
+              Built a fully responsive personal portfolio website with smooth navigation,
+              dark/light mode, glassmorphism UI, and scroll animations.
+            </p>
+            <div class="project-card__tags">
+              <span class="tag">HTML</span>
+              <span class="tag">CSS</span>
+              <span class="tag">JavaScript</span>
+            </div>
+          </article>
+
+          <!-- Project 2 -->
+          <article class="project-card glass-card reveal reveal--delay-1" data-category="html js">
+            <div class="project-card__header">
+              <div class="project-card__icon"><i class="fa-solid fa-images" aria-hidden="true"></i></div>
+              <div class="project-card__links">
+                <a href="#" class="project-card__link" aria-label="View Image Gallery source on GitHub">
+                  <i class="fa-brands fa-github" aria-hidden="true"></i>
+                </a>
+                <a href="#" class="project-card__link" aria-label="View Image Gallery live demo">
+                  <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+                </a>
+              </div>
+            </div>
+            <h3 class="project-card__title">Responsive Image Gallery</h3>
+            <p class="project-card__desc">
+              Created an image gallery with responsive layouts, hover effects,
+              category filtering, and a mobile-friendly design using CSS Grid.
+            </p>
+            <div class="project-card__tags">
+              <span class="tag">HTML</span>
+              <span class="tag">CSS Grid</span>
+              <span class="tag">JavaScript</span>
+            </div>
+          </article>
+
+          <!-- Project 3 -->
+          <article class="project-card glass-card reveal reveal--delay-2" data-category="js">
+            <div class="project-card__header">
+              <div class="project-card__icon"><i class="fa-solid fa-calculator" aria-hidden="true"></i></div>
+              <div class="project-card__links">
+                <a href="#" class="project-card__link" aria-label="View Calculator source on GitHub">
+                  <i class="fa-brands fa-github" aria-hidden="true"></i>
+                </a>
+                <a href="#" class="project-card__link" aria-label="View Calculator live demo">
+                  <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+                </a>
+              </div>
+            </div>
+            <h3 class="project-card__title">Calculator Application</h3>
+            <p class="project-card__desc">
+              Developed a functional calculator supporting all four arithmetic operations
+              using JavaScript DOM manipulation and event-driven architecture.
+            </p>
+            <div class="project-card__tags">
+              <span class="tag">JavaScript</span>
+              <span class="tag">DOM</span>
+              <span class="tag">Event Handling</span>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         RESUME SECTION
+    ============================================================ -->
+    <section id="resume" class="resume section" aria-labelledby="resume-title">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">My background</span>
+          <h2 id="resume-title" class="section-title">Education &amp; <span class="gradient-text">Resume</span></h2>
+        </div>
+
+        <div class="resume__grid">
+          <div class="glass-card reveal">
+            <div class="resume__edu-icon"><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i></div>
+            <h3>Bachelor's in Computer Science</h3>
+            <p class="resume__status">Currently Pursuing</p>
+            <p>Studying core CS fundamentals — data structures, algorithms, databases, OS, and networking — while building real-world projects to apply every concept learned.</p>
+          </div>
+
+          <div class="resume__cta reveal reveal--delay-1">
+            <i class="fa-solid fa-file-lines resume__cta-icon" aria-hidden="true"></i>
+            <h3>Want to see my full background?</h3>
+            <p>Download my resume for a detailed overview of my education, skills, and projects.</p>
+            <a href="#" class="btn btn--primary" download aria-label="Download Harshit Kumar's resume">
+              <i class="fa-solid fa-download" aria-hidden="true"></i> Download Resume
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         CONTACT SECTION
+    ============================================================ -->
+    <section id="contact" class="contact section" aria-labelledby="contact-title">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">Get in touch</span>
+          <h2 id="contact-title" class="section-title">Contact <span class="gradient-text">Me</span></h2>
+        </div>
+
+        <div class="contact__grid">
+
+          <!-- Contact info -->
+          <div class="contact__info reveal">
+            <p class="contact__tagline">Have a project in mind or just want to say hi? My inbox is always open.</p>
+
+            <div class="contact__links">
+              <a href="mailto:harshitkumar@email.com" class="contact__item glass-card" aria-label="Send email to Harshit Kumar">
+                <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+                <span>harshitkumar@email.com</span>
+              </a>
+              <a href="https://github.com/" target="_blank" rel="noopener noreferrer" class="contact__item glass-card" aria-label="Harshit Kumar on GitHub">
+                <i class="fa-brands fa-github" aria-hidden="true"></i>
+                <span>github.com/harshitkumar</span>
+              </a>
+              <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer" class="contact__item glass-card" aria-label="Harshit Kumar on LinkedIn">
+                <i class="fa-brands fa-linkedin" aria-hidden="true"></i>
+                <span>linkedin.com/in/harshitkumar</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Contact form -->
+          <div class="contact__form-wrap reveal reveal--delay-1">
+            <form id="contactForm" class="glass-card" novalidate aria-label="Contact form">
+              <div class="form-group">
+                <label for="name">Name <span aria-hidden="true">*</span></label>
+                <input type="text" id="name" name="name" placeholder="Your full name" required autocomplete="name" />
+                <span class="form-error" id="nameError" role="alert"></span>
+              </div>
+              <div class="form-group">
+                <label for="email">Email <span aria-hidden="true">*</span></label>
+                <input type="email" id="email" name="email" placeholder="you@example.com" required autocomplete="email" />
+                <span class="form-error" id="emailError" role="alert"></span>
+              </div>
+              <div class="form-group">
+                <label for="subject">Subject</label>
+                <input type="text" id="subject" name="subject" placeholder="What's this about?" autocomplete="off" />
+              </div>
+              <div class="form-group">
+                <label for="message">Message <span aria-hidden="true">*</span></label>
+                <textarea id="message" name="message" rows="5" placeholder="Tell me about your project..." required></textarea>
+                <span class="form-error" id="messageError" role="alert"></span>
+              </div>
+              <button type="submit" class="btn btn--primary btn--full">
+                Send Message <i class="fa-solid fa-paper-plane" aria-hidden="true"></i>
+              </button>
+              <p class="form-success" id="formSuccess" role="status" aria-live="polite"></p>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+  <footer class="footer" role="contentinfo">
+    <div class="container footer__inner">
+      <a href="#hero" class="nav__logo" aria-label="Back to top">
+        <span class="nav__logo-bracket">&lt;</span>HK<span class="nav__logo-bracket">/&gt;</span>
+      </a>
+
+      <p class="footer__copy">
+        &copy; <span id="year"></span> Harshit Kumar. Crafted with <span aria-label="love">❤️</span> &amp; lots of coffee.
+      </p>
+
+      <div class="footer__social" aria-label="Social media links">
+        <a href="https://github.com/"    target="_blank" rel="noopener noreferrer" aria-label="GitHub profile">
+          <i class="fa-brands fa-github" aria-hidden="true"></i>
+        </a>
+        <a href="https://linkedin.com/"  target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">
+          <i class="fa-brands fa-linkedin" aria-hidden="true"></i>
+        </a>
+        <a href="mailto:harshitkumar@email.com" aria-label="Send email">
+          <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to top button -->
+  <button class="back-to-top" id="backToTop" aria-label="Back to top" title="Back to top">
+    <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
+  </button>
+
+  <!-- Script -->
+  <script src="assets/js/script.js"></script>
+</body>
+</html>
